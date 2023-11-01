@@ -71,5 +71,10 @@ public class HotelController {
         HotelDto hotelDto = hotelService.searchHotel(id);
         return new ResponseUtil(200,"search",hotelDto);
     }
+    @GetMapping(params = {"category"},produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByHotelCategory(@RequestParam String category){
+        List<HotelDto> hotelCategory = hotelService.findByHotelCategory(category);
+        return new ResponseUtil(200,"Hotel Category",hotelCategory);
+    }
 
 }

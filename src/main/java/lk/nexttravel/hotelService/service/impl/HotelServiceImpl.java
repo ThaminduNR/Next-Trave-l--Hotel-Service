@@ -70,4 +70,11 @@ public class HotelServiceImpl implements HotelService {
 
     }
 
+    @Override
+    public List<HotelDto> findByHotelCategory(String category) {
+        return mapper.map(hotelRepository.findByCategory(category), new TypeToken<List<HotelDto>>() {
+        }.getType());
+    }
+
+
 }
